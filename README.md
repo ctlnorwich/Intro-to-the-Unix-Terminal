@@ -66,8 +66,6 @@ ls -l /home
 # command: list the files
 ```
 
-You'll hear "options" and "flags" used for the same thing, but some people, including me, make a distinction. A **flag** is an option that is either on or off, like `-l` above, while an **option** can also take a value of its own, like `-n 5` in `head -n 5 notes.txt`, which shows the first 5 lines of a file. So every flag is an option, but not every option is a flag.
-
 | Command | Short for | What it does | Example |
 | --- | --- | --- | --- |
 | `pwd` | print working directory | Shows which folder you are in | `pwd` |
@@ -525,10 +523,22 @@ Vim is **modal**, meaning the keys do different things depending on what mode yo
 
 ### Next Steps...
 
-If you want to master the way of vim try vim-adventures.com
+There are some resources below, but the best thing you can do is play. Let your interest take you wherever it goes. The more you use the terminal, the more natural it becomes, so find a place to mess around in:
 
+- **Run a codespace like this one**: you can make a codespace from almost any repository on GitHub, and your personal account comes with free hours every month.
+- **Rent a server**: you can rent a small Linux server for a few pounds a month and control it entirely through the terminal, which makes it great practice. I recommend [Krystal](https://krystal.io/) or [Hetzner](https://www.hetzner.com/), as they are both European hosted and about as ethical as a datacentre can be. Linus Tech Tips did a [tour of Hetzner's datacentre](https://www.youtube.com/watch?v=MQeJYEN_lrg) if you want to see where your server would actually live.
+- **Get a Raspberry Pi**: a tiny, cheap computer that runs Linux. Plug it into a screen or connect to it from your laptop's terminal and use it for anything from a home server to a robot. You can borrow one from the CTL at uni!
+- **Just open the terminal on your Mac**: macOS is Unix-like, so the Terminal app is ready to go. It uses `zsh` rather than `bash`, but nearly everything from today works the same.
+- **Use WSL if you're on Windows**: the Windows Subsystem for Linux runs a real Linux system inside Windows. Open PowerShell (on your own hardware!!) and run `wsl --install` to get Ubuntu.
+- **If you're brave, install Linux on your own hardware**: put it on an old laptop, or dual boot it on its own partition next to your current OS. Ubuntu and Linux Mint are friendly places to start.
+- **Run other people's projects from GitHub**: most projects' README files are full of terminal commands for installing and running them, so following them is great practice.
+- **Develop something**: start a project of your own and you'll find yourself using these tools without even thinking about it.
+
+And some resources to help you along the way:
+
+- **[Vim Adventures](https://vim-adventures.com/)**: if you want to master the way of vim, this game teaches it to you.
 - **`vimtutor`**: type this into your codespace for a 30 minute interactive vim lesson that's built right in.
 - **[GameShell](https://github.com/phyver/GameShell)**: go back and finish the missions you didn't get to.
 - **[OverTheWire: Bandit](https://overthewire.org/wargames/bandit/)**: a hacking game played entirely in the terminal, where each level teaches you a new command.
 - **[explainshell.com](https://explainshell.com/)**: paste in any command you find online and it explains each part, just like we did with our one-liner.
-- **[The Missing Semester of Your CS Education](https://missing.csail.mit.edu/)**: a free course from MIT on the shell, scripting, vim, git and more.
+- **[The Missing Semester of Your CS Education](https://missing.csail.mit.edu/)**: a free course from MIT on the shell, scripting, vim, git and more with a name un-relevant to you because your doing this workshop now!
