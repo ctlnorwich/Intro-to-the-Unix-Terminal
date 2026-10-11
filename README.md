@@ -1,6 +1,29 @@
 # Intro to the Unix Terminal
 A workshop/resource catalogue to teach beginner linux/unix users how to use a linux/unix-based OS's terminal, common CLI tools and the UNIX philosophy that is behind them. 
 
+## Contents
+
+- [Another way to use a computer](#another-way-to-use-a-computer)
+- [The Basics](#the-basics)
+  - [Basic Commands](#basic-commands)
+- [Utility Tools](#utility-tools)
+  - [Package managers](#package-managers)
+  - [Making a spritesheet](#making-a-spritesheet)
+- [The Environment](#the-environment)
+  - [Environment variables](#environment-variables)
+  - [Writing a script](#writing-a-script)
+  - [Adding to the PATH](#adding-to-the-path)
+- [Development Tools](#development-tools)
+  - [Installing uv](#installing-uv)
+  - [Starting a project](#starting-a-project)
+  - [Adding dependencies](#adding-dependencies)
+  - [Linting](#linting)
+  - [Sharing your project](#sharing-your-project)
+- [Text Editors](#text-editors)
+  - [Nano](#nano)
+  - [Vim](#vim)
+- [Next Steps...](#next-steps)
+
 ## Another way to use a computer
 
 Before Graphical User Interfaces (GUIs) there was just the terminal and its command-line interface. Directly controlling a computer's operating system by typing commands. Today they still offer a way to use a computer that is deeper and more precise than a mouse and buttons. 
