@@ -1,0 +1,18 @@
+{
+  "name": "Intro to the Unix Terminal",
+  // A plain Ubuntu machine. ffmpeg, ImageMagick and uv are deliberately left out
+  // because installing them is part of the workshop.
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "postCreateCommand": "sudo apt-get update && sudo apt-get install -y vim",
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash",
+        // Let Ctrl+K reach nano instead of being caught as a VS Code shortcut
+        "terminal.integrated.allowChords": false,
+        // Let the Option key on a Mac work as Alt for nano and vim
+        "terminal.integrated.macOptionIsMeta": true
+      }
+    }
+  }
+}
