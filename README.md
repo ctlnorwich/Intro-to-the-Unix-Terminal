@@ -120,7 +120,7 @@ ls ~ > my-files.txt       # save the list of files in your home folder
 cat my-files.txt
 ```
 
-### Utility Tools
+## Utility Tools
 
 From here on we are using a codespace made for this workshop. Click the button below to open it, and use the terminal at the bottom of the screen for everything in this section and the ones after it.
 
@@ -128,7 +128,7 @@ From here on we are using a codespace made for this workshop. Click the button b
 
 We aren't all SysOps just making and moving files and folders, so the next challenge is a real world one that you might want to do. We are going to use a combination of a few commands to convert a folder of images into a spritesheet for use in game engines.
 
-#### Package managers
+### Package managers
 
 First we need some tools that don't come with the computer. On a Unix-like OS you usually install software with a **package manager**. Think of it as the app store of the shell: you ask for a program by name and it downloads and installs it for you, along with everything that program needs to work. Our codespace runs Ubuntu, and Ubuntu's package manager is called `apt`.
 
@@ -154,7 +154,7 @@ ffmpeg -version
 identify -version
 ```
 
-#### Making a spritesheet
+### Making a spritesheet
 
 There is a short video of a bouncing ball in the `spritesheet` folder. Move into that folder and have a look:
 
@@ -191,9 +191,9 @@ That's a lot of things in one line, so let's break it down. It is actually four 
 
 Commands like this are called 'one-liners'. They are great for a job you only need to do once, but they're hard to remember and easy to mistype. If it's something you're going to do again and again, it's better to save it as a **script**, which leads us onto the next part.
 
-### The Environment
+## The Environment
 
-#### Environment variables
+### Environment variables
 
 When the shell starts, it sets up some **environment variables**. These are named values that any command can read. You get a variable's value by putting a `$` in front of its name:
 
@@ -217,7 +217,7 @@ which ls
 
 You'll see it lives in a folder called `bin`. That's short for **binary**, because compiled programs are stored as binary files. Putting programs in a folder called `bin` is just a convention though, it could be called whatever you like, such as "scripts".
 
-#### Writing a script
+### Writing a script
 
 Let's turn our one-liner into a command of our own. First make a `bin` folder in your home folder, then open a new file in it:
 
@@ -269,7 +269,7 @@ make-spritesheet video.mp4
 
 You'll probably get `command not found`. That's because `~/bin` isn't in our `PATH`, so the shell doesn't know to look there. We could type out where it is in full every time with `~/bin/make-spritesheet video.mp4`, but that's not much of a command.
 
-#### Adding to the PATH
+### Adding to the PATH
 
 We can add our folder to the start of the `PATH` like this:
 
@@ -301,13 +301,13 @@ ls
 > [!TIP]
 > That's a long path to type. Type the first few letters of each folder and press <kbd>Tab</kbd> to finish it.
 
-### Development Tools 
+## Development Tools 
 
 When you develop software you are almost always drawing upon different libraries of other software, we call these dependencies. To manage these dependencies and aid other parts of development like compilation and linting we use development environments that we control with terminal commands. 
 
 Today we will look at using the python tool uv which is a popular development toolkit for Python. It can install Python itself, create environments for your projects, manage their dependencies and run development tools like linters, all from one command. Most languages have something similar, such as `npm` for JavaScript and `cargo` for Rust, so what you learn here carries over.
 
-#### Installing uv
+### Installing uv
 
 uv isn't in `apt`, so we'll use the installer from its website:
 
@@ -328,7 +328,7 @@ which uv
 uv --version
 ```
 
-#### Starting a project
+### Starting a project
 
 Make a new project in your home folder and move into it:
 
@@ -361,7 +361,7 @@ Hello from my-project!
 
 The first time you do this, uv downloads Python and makes a **virtual environment** in a hidden `.venv` folder. That's a private copy of Python just for this project, so the dependencies of one project never clash with another's.
 
-#### Adding dependencies
+### Adding dependencies
 
 Let's add a dependency. `rich` is a library for printing nice looking things in the terminal:
 
@@ -416,7 +416,7 @@ uv run main.py
 
 Add some rows of your own with the other commands you've learned today.
 
-#### Linting
+### Linting
 
 A **linter** reads your code and points out mistakes and bad habits without running it. `ruff` is a popular one for Python. We only need it while we're developing, not for the program to work, so we add it as a **development dependency** with `--dev`:
 
@@ -445,7 +445,7 @@ uv run ruff check --fix
 > uvx pycowsay "Moo! I'm in the terminal"
 > ```
 
-#### Sharing your project
+### Sharing your project
 
 Your `.venv` folder never gets shared. Instead you share `pyproject.toml` and `uv.lock`, and anyone else can rebuild exactly the same environment with one command:
 
@@ -455,7 +455,7 @@ uv sync
 
 This is why you'll see these files in almost every modern Python project on GitHub.
 
-### Text Editors
+## Text Editors
 
 Terminal applications are not just CLIs or Command-Line Interfaces, which is strictly where a user just types commands line by line, sometimes they can get a bit closer to graphical user interfaces. These are called TUIs or Terminal User Interfaces and the most common are chat applications and text editors, but you'll also find things like system monitors. Try `top` to see every program running on your codespace (press <kbd>q</kbd> to quit).
 
@@ -471,7 +471,7 @@ Recommend you play around with both in your codespaces the basic commands are su
 > [!WARNING]
 > In a browser, <kbd>Ctrl</kbd> + <kbd>W</kbd> closes the tab! Nano uses it for search, so use <kbd>F6</kbd> to search instead. On a Mac, these shortcuts use <kbd>Ctrl</kbd>, not <kbd>Cmd</kbd>.
 
-#### Nano
+### Nano
 
 Open a file with `nano`, for example the `main.py` from your uv project:
 
@@ -490,7 +490,7 @@ You can just start typing. The shortcuts are listed along the bottom of the scre
 | <kbd>F6</kbd> | Search |
 | <kbd>Alt</kbd> + <kbd>U</kbd> | Undo |
 
-#### Vim
+### Vim
 
 ```bash
 vim ~/my-project/main.py
@@ -521,14 +521,14 @@ Vim is **modal**, meaning the keys do different things depending on what mode yo
 
 **Try it yourself:** open your `make-spritesheet` script with each editor and change the default number of columns from `8` to `4`. Then check it worked by running `make-spritesheet` again.
 
-### Next Steps...
+## Next Steps...
 
 There are some resources below, but the best thing you can do is play. Let your interest take you wherever it goes. The more you use the terminal, the more natural it becomes, so find a place to mess around in:
 
 - **Run a codespace like this one**: you can make a codespace from almost any repository on GitHub, and your personal account comes with free hours every month.
 - **Rent a server**: you can rent a small Linux server for a few pounds a month and control it entirely through the terminal, which makes it great practice. I recommend [Krystal](https://krystal.io/) or [Hetzner](https://www.hetzner.com/), as they are both European hosted and about as ethical as a datacentre can be. Linus Tech Tips did a [tour of Hetzner's datacentre](https://www.youtube.com/watch?v=MQeJYEN_lrg) if you want to see where your server would actually live.
-- **Get a Raspberry Pi**: a tiny, cheap computer that runs Linux. Plug it into a screen or connect to it from your laptop's terminal and use it for anything from a home server to a robot. You can borrow one from the CTL at uni!
-- **Just open the terminal on your Mac**: macOS is Unix-like, so the Terminal app is ready to go. It uses `zsh` rather than `bash`, but nearly everything from today works the same.
+- **Get a Raspberry Pi**: a tiny, cheap computer that runs Linux. Plug it into a screen or connect to it from another computer and use it for anything from a home server to a robot. You can borrow one from the CTL at uni!
+- **Just open the terminal on a Mac (Don't do this on university macs though)**: macOS is Unix-like, so the Terminal app is ready to go. It uses `zsh` rather than `bash`, but nearly everything from today works the same.
 - **Use WSL if you're on Windows**: the Windows Subsystem for Linux runs a real Linux system inside Windows. Open PowerShell (on your own hardware!!) and run `wsl --install` to get Ubuntu.
 - **If you're brave, install Linux on your own hardware**: put it on an old laptop, or dual boot it on its own partition next to your current OS. Ubuntu and Linux Mint are friendly places to start.
 - **Run other people's projects from GitHub**: most projects' README files are full of terminal commands for installing and running them, so following them is great practice.
