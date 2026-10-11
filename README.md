@@ -25,6 +25,10 @@ A workshop/resource catalogue to teach beginner linux/unix users how to use a li
     - [Nano](#nano)
     - [Vim](#vim)
   - [Next Steps...](#next-steps)
+  - [Glossary](#glossary)
+
+> [!WARNING]
+> **Jargon ahead!** The terminal comes with a lot of jargon, and much of it is acronyms, abbreviations and in-jokes from decades ago. Don't worry if a word goes over your head, you don't need to remember them all. Whenever you get stuck on one, check the [Glossary](#glossary) at the bottom, ask the internet or an uni technician.
 
 ## Another way to use a computer
 
@@ -328,7 +332,7 @@ When you develop software you are almost always drawing upon different libraries
 Today we will look at using the python tool uv which is a popular development toolkit for Python. It can install Python itself, create environments for your projects, manage their dependencies and run development tools like linters, all from one command. Most languages have something similar, such as `npm` for JavaScript and `cargo` for Rust, so what you learn here carries over.
 
 > [!TIP]
-> The other development tool you'll use all the time is **git**. It's a **version control** system, which means it saves snapshots of your project as you go (called **commits**) so you can see what changed and go back if something breaks. GitHub, where you're reading this, is a website for storing and sharing git projects, and this workshop is one! The basic commands are:
+> The other development tool you'll use all the time is **git**. It's a **version control** system, which means it saves snapshots of your project as you go (called **commits**) so you can see what changed and go back if something breaks. GitHub, where you're reading this, is a website for storing and sharing git projects, and this workshop is one, although my commit messages are not stellar examples! The basic commands are:
 > ```bash
 > git status                      # see what has changed since your last commit
 > git add main.py                 # pick the changes you want to save
@@ -578,3 +582,61 @@ And some resources to help you along the way:
 - **[OverTheWire: Bandit](https://overthewire.org/wargames/bandit/)**: a hacking game played entirely in the terminal, where each level teaches you a new command.
 - **[explainshell.com](https://explainshell.com/)**: paste in any command you find online and it explains each part, just like we did with our one-liner.
 - **[The Missing Semester of Your CS Education](https://missing.csail.mit.edu/)**: a free course from MIT on the shell, scripting, vim, git and more with a name un-relevant to you because your doing this workshop now!
+
+## Glossary
+
+| Term | Meaning |
+| --- | --- |
+| **Argument** | Something you give a command to work on, like the file name in `cat todo.txt` |
+| **bash** | The Bourne-again Shell, the most common shell on Linux and the one we use in this workshop |
+| **bin** | Short for **binary**. A folder where programs are kept, like `/usr/bin` or our own `~/bin` |
+| **Binary** | A program that has been compiled into the 1s and 0s a computer runs directly, rather than text you can read |
+| **CLI** | Command-Line Interface. A program you use by typing commands line by line |
+| **Codespace** | A Linux computer in the cloud from GitHub, which you use through your browser |
+| **Command** | A program you run by typing its name into the shell, like `ls` or `ffmpeg` |
+| **Commit** | A saved snapshot of your project in git, with a message saying what changed |
+| **Compile** | To turn code people can read into a binary the computer can run |
+| **Dependency** | Someone else's code that your project needs to work, like `rich` in our uv project |
+| **Development dependency** | A dependency you only need while developing, like the linter `ruff`, not for the program itself to run |
+| **Directory** | Another word for a folder |
+| **Dual boot** | Having two operating systems installed on one computer and choosing which one to start when you turn it on |
+| **Environment variable** | A named value the shell keeps track of that any command can read, like `$HOME` or `$PATH` |
+| **Execute** | To run a file as a program. A file needs permission to be executed first, given with `chmod +x` |
+| **Flag** | An option that is either on or off, like `-l` in `ls -l`. See also **Option** |
+| **git** | A version control system that saves snapshots of your project as you go |
+| **GitHub** | A website for storing and sharing git projects, and where you are reading this |
+| **GUI** | Graphical User Interface. A program you use with windows, buttons and a mouse |
+| **Hidden file** | A file whose name starts with a `.`, like `.bashrc`. You only see them with `ls -a`, and they are often used for settings |
+| **Home folder** | Your own personal folder, written as `~`. In a codespace it is `/home/vscode` |
+| **IDE** | Integrated Development Environment. A text editor with extra tools for writing code built in, like the one your codespace opens in |
+| **Kernel** | The core of the operating system that manages the hardware and system resources |
+| **Linter** | A tool that reads your code and points out mistakes and bad habits without running it |
+| **Linux** | A free, open source, Unix-like operating system. It runs most of the world's servers, Android phones and our codespace |
+| **One-liner** | Several commands joined together into a single line, handy for one off jobs |
+| **Option** | Something that changes how a command behaves, usually starting with a `-`, like `-tile 8x`. Sometimes called a **flag** |
+| **OS** | Operating System. The software that runs a computer, like Linux, macOS or Windows |
+| **Package** | A piece of software packaged up so a package manager can install it |
+| **Package manager** | The app store of the shell. It installs software for you along with everything it needs, like `apt` |
+| **Partition** | A section of a hard drive that is kept separate from the rest, so it can hold its own operating system |
+| **PATH** | The environment variable that lists the folders the shell looks in to find commands |
+| **Pipe** | `\|`. Sends the output of one command into the input of the next |
+| **Repository** | A project stored in git, often shortened to **repo**. This workshop is one |
+| **Root** | Has two meanings. The top of the file system, written `/`, and the superuser account |
+| **Script** | A text file full of commands that run one after another, like our `make-spritesheet` |
+| **Server** | A computer, usually without a screen, that runs all the time to provide a service, like hosting a website |
+| **Shebang** | The `#!` line at the top of a script that says which program should run it, like `#!/bin/bash` |
+| **Shell** | The program that reads the commands you type and runs them, like `bash` or `zsh` |
+| **Spritesheet** | One image holding every frame of an animation in a grid, used by game engines |
+| **sudo** | Superuser do. Runs a single command as the superuser |
+| **Superuser** | The administrator account, called `root`, that is allowed to change anything on the system |
+| **Terminal** | The window or interface you type commands into, which runs the shell |
+| **TUI** | Terminal User Interface. A program that runs in the terminal but has more of an interface than just lines of text, like `nano`, `vim` or `top` |
+| **Ubuntu** | A popular version of Linux, and the one our codespace runs |
+| **Unix-like** | Operating systems that work in the same way as the original Unix from the 1970s, including Linux, macOS, FreeBSD, Android and iOS |
+| **Utilities** | The commands and programs you run from the shell, like `nano` or `wget` |
+| **Version control** | Keeping track of every change made to a project so you can see its history and go back. git is a version control system |
+| **Virtual environment** | A private copy of Python just for one project, kept in the `.venv` folder, so the dependencies of different projects never clash |
+| **Wildcard** | `*`. Matches any text in a file name, so `*.png` means every file ending in `.png` |
+| **Working directory** | The folder you are in right now, shown with `pwd` |
+| **WSL** | Windows Subsystem for Linux. A way to run a real Linux system inside Windows |
+| **zsh** | The Z shell, the default shell on macOS. It works very much like bash |
