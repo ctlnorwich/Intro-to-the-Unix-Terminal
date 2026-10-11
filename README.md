@@ -3,26 +3,28 @@ A workshop/resource catalogue to teach beginner linux/unix users how to use a li
 
 ## Contents
 
-- [Another way to use a computer](#another-way-to-use-a-computer)
-- [The Basics](#the-basics)
-  - [Basic Commands](#basic-commands)
-- [Utility Tools](#utility-tools)
-  - [Package managers](#package-managers)
-  - [Making a spritesheet](#making-a-spritesheet)
-- [The Environment](#the-environment)
-  - [Environment variables](#environment-variables)
-  - [Writing a script](#writing-a-script)
-  - [Adding to the PATH](#adding-to-the-path)
-- [Development Tools](#development-tools)
-  - [Installing uv](#installing-uv)
-  - [Starting a project](#starting-a-project)
-  - [Adding dependencies](#adding-dependencies)
-  - [Linting](#linting)
-  - [Sharing your project](#sharing-your-project)
-- [Text Editors](#text-editors)
-  - [Nano](#nano)
-  - [Vim](#vim)
-- [Next Steps...](#next-steps)
+- [Intro to the Unix Terminal](#intro-to-the-unix-terminal)
+  - [Contents](#contents)
+  - [Another way to use a computer](#another-way-to-use-a-computer)
+  - [The Basics](#the-basics)
+    - [Basic Commands](#basic-commands)
+  - [Utility Tools](#utility-tools)
+    - [Package managers](#package-managers)
+    - [Using the tools together](#using-the-tools-together)
+  - [The Environment](#the-environment)
+    - [Environment variables](#environment-variables)
+    - [Writing a script](#writing-a-script)
+    - [Adding to the PATH](#adding-to-the-path)
+  - [Development Tools](#development-tools)
+    - [Installing uv](#installing-uv)
+    - [Starting a project](#starting-a-project)
+    - [Adding dependencies](#adding-dependencies)
+    - [Linting](#linting)
+    - [Sharing your project](#sharing-your-project)
+  - [Text Editors](#text-editors)
+    - [Nano](#nano)
+    - [Vim](#vim)
+  - [Next Steps...](#next-steps)
 
 ## Another way to use a computer
 
@@ -32,15 +34,10 @@ Every Operating System (OS) has a terminal interface to control it but this work
 
 The terminal or command line is the actual interface where commands are entered but the software that it is running is called the 'shell'. The shell acts as an intermediary between the user and the "kernel", the heart of an operating system, ensuring that instructions are processed correctly.
 
-```mermaid
-flowchart TD
-    You(["You"]) -- type commands into --> Terminal
-    Terminal -- passes them to --> Shell["Shell (bash)"]
-    Shell -- asks --> Kernel
-    Kernel -- controls --> Hardware["Hardware (CPU, memory, disks...)"]
-```
+![Layers of a Unix-like OS: the hardware at the centre, surrounded by the kernel, then shells like bash, ksh and csh, then utilities like nano, vi, wget and cal. Image source: GeeksforGeeks, Introduction to Linux Shell and Shell Scripting](images/shell_in_os.webp)
 
 - **Terminal**: Interface used to access the shell
+- **Utilities**: Commands and programs you run from the shell, like `nano` or `wget`
 - **Shell**: Command interpreter that processes user input
 - **Kernel**: Core of the operating system that manages hardware and system resources
 
@@ -177,7 +174,7 @@ ffmpeg -version
 identify -version
 ```
 
-### Making a spritesheet
+### Using the tools together
 
 There is a short video of a bouncing ball in the `spritesheet` folder. Move into that folder and have a look:
 
@@ -330,6 +327,16 @@ When you develop software you are almost always drawing upon different libraries
 
 Today we will look at using the python tool uv which is a popular development toolkit for Python. It can install Python itself, create environments for your projects, manage their dependencies and run development tools like linters, all from one command. Most languages have something similar, such as `npm` for JavaScript and `cargo` for Rust, so what you learn here carries over.
 
+> [!TIP]
+> The other development tool you'll use all the time is **git**. It's a **version control** system, which means it saves snapshots of your project as you go (called **commits**) so you can see what changed and go back if something breaks. GitHub, where you're reading this, is a website for storing and sharing git projects, and this workshop is one! The basic commands are:
+> ```bash
+> git status                      # see what has changed since your last commit
+> git add main.py                 # pick the changes you want to save
+> git commit -m "Add my table"    # save them as a commit, with a message saying what you did
+> git log                         # look back through your commits
+> ```
+> The free [Pro Git book](https://git-scm.com/book) is a great place to learn more.
+
 ### Installing uv
 
 uv isn't in `apt`, so we'll use the installer from its website:
@@ -465,12 +472,18 @@ uv run ruff check --fix
 > [!TIP]
 > If you just want to try a tool once without adding it to a project, use `uvx`. It downloads the tool, runs it and leaves your project alone:
 > ```bash
-> uvx pycowsay "Moo! I'm in the terminal"
+> uvx pycowsay "Moo!"
 > ```
 
 ### Sharing your project
 
-Your `.venv` folder never gets shared. Instead you share `pyproject.toml` and `uv.lock`, and anyone else can rebuild exactly the same environment with one command:
+Your `.venv` folder never gets shared. It's big, and it's built for your computer, so it might not even work on someone else's. That's why uv put it in the `.gitignore` file it made for us, which is a list of files and folders that git should leave out:
+
+```bash
+cat .gitignore
+```
+
+Instead you share `pyproject.toml` and `uv.lock`, and anyone else can rebuild exactly the same environment with one command:
 
 ```bash
 uv sync
