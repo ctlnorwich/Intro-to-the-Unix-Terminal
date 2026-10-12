@@ -34,7 +34,7 @@ A workshop/resource catalogue to teach beginner linux/unix users how to use a li
 
 Before Graphical User Interfaces (GUIs) there was just the terminal and its command-line interface. Directly controlling a computer's operating system by typing commands. Today they still offer a way to use a computer that is deeper and more precise than a mouse and buttons. 
 
-Every Operating System (OS) has a terminal interface to control it but this workshop is focused on the Unix-like family of OSs which include Linux, MacOS, FreeBSD and even android and iOS. 
+Every Operating System (OS) has aijfshjikfa terminal interface to control it but this workshop is focused on the Unix-like family of OSs which include Linux, MacOS, FreeBSD and even android and iOS. 
 
 The terminal or command line is the actual interface where commands are entered but the software that it is running is called the 'shell'. The shell acts as an intermediary between the user and the "kernel", the heart of an operating system, ensuring that instructions are processed correctly.
 
@@ -364,14 +364,16 @@ uv --version
 
 ### Starting a project
 
-Make a new project in your home folder and move into it:
+Go back to the workshop folder, so your project shows up in the file explorer on the left, then make a new project there and move into it:
 
 ```bash
-cd ~
-uv init my-project
+cd /workspaces/Intro-to-the-Unix-Terminal
+uv init --no-package my-project
 cd my-project
 ls -a
 ```
+
+`--no-package` tells uv this is a simple program with a `main.py` that we run directly, rather than a package for other projects to install.
 
 uv has made a few files for us:
 
@@ -381,7 +383,8 @@ uv has made a few files for us:
 | `pyproject.toml` | Information about your project, including its list of dependencies |
 | `.python-version` | Which version of Python this project uses |
 | `README.md` | A description of your project, just like the one you're reading now |
-| `.git` and `.gitignore` | uv also sets your project up to use git for version control |
+
+uv would normally set your project up to use git as well, but the workshop folder is already a git repository, so your project is part of that one.
 
 Run the code:
 
@@ -481,10 +484,10 @@ uv run ruff check --fix
 
 ### Sharing your project
 
-Your `.venv` folder never gets shared. It's big, and it's built for your computer, so it might not even work on someone else's. That's why uv put it in the `.gitignore` file it made for us, which is a list of files and folders that git should leave out:
+Your `.venv` folder never gets shared. It's big, and it's built for your computer, so it might not even work on someone else's. That's why uv put a `.gitignore` file inside it. A `.gitignore` is a list of files and folders that git should leave out, and this one just says `*`, the wildcard, which means "ignore everything in this folder":
 
 ```bash
-cat .gitignore
+cat .venv/.gitignore
 ```
 
 Instead you share `pyproject.toml` and `uv.lock`, and anyone else can rebuild exactly the same environment with one command:
@@ -513,10 +516,10 @@ Recommend you play around with both in your codespaces the basic commands are su
 
 ### Nano
 
-Open a file with `nano`, for example the `main.py` from your uv project:
+Open a file with `nano`, for example the `main.py` from your uv project (you should still be in your `my-project` folder):
 
 ```bash
-nano ~/my-project/main.py
+nano main.py
 ```
 
 You can just start typing. The shortcuts are listed along the bottom of the screen, where `^` means <kbd>Ctrl</kbd> and `M-` means <kbd>Alt</kbd>.
@@ -533,7 +536,7 @@ You can just start typing. The shortcuts are listed along the bottom of the scre
 ### Vim
 
 ```bash
-vim ~/my-project/main.py
+vim main.py
 ```
 
 Vim is **modal**, meaning the keys do different things depending on what mode you're in. This is why people famously get stuck in it! The most important key to remember is <kbd>Esc</kbd>, which always takes you back to normal mode.
